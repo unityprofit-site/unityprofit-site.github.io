@@ -16,7 +16,7 @@
 <section id="page-home">
 <div class="hero"><div><div class="eyebrow">ግዢ • ግልጽነት • ዕድገት</div><h1>ጥራት ያለውን ምርት ይግዙ፣ ከንግዱ ጋር ይደግፉ።</h1><p>የኢትዮጵያ ምርቶችን በቀላሉ ያግኙ። የትርፍ ድርሻ ካለ በተረጋገጠ እውነተኛ ትርፍና በግልጽ ስምምነት መሠረት ብቻ ይሰላል።</p><button class="primary" onclick="showPage('shop')">ምርቶችን ይመልከቱ →</button></div><div class="hero-art">🌶️ 🫘 ☕</div></div>
 <div class="section-head"><h2>ተወዳጅ ምርቶች</h2><button class="secondary" onclick="showPage('shop')">ሁሉንም ይመልከቱ</button></div><div class="grid" id="homeProducts"></div>
-<div class="notice" style="margin-top:20px">ማስታወሻ፦ የትርፍ ድርሻ የተረጋገጠ ገቢ አይደለም። ሽያጭ ወይም ትርፍ ከሌለ ክፍያ ላይኖር ይችላል። የህዝብ ትርፍ-መጋራት ስርዓት ከመጀመሩ በፊት የሕግ ምክር ያግኙ።</div>
+<div class="notice" style="margin-top:20px">ማስታወሻ፦ ከ500 ብር ጀምሮ ድርሻ ይሳተፉ። ትርፍ ከእውነተኛ የቡና እና የሰሊጥ ሽያጭ የተጣራ ትርፍ ብቻ ይከፋፈላል። ትርፉ በሽያጭ ይወሰናል።</div>
 </section>
 <section id="page-shop" class="hidden"><div class="section-head"><div><div class="eyebrow">UNITY MARKET</div><h2>ምርቶችን ይግዙ</h2></div><input id="search" placeholder="ምርት ፈልግ..." oninput="renderProducts()" style="padding:12px;border:1px solid var(--line);border-radius:10px"></div><div class="chips" id="filters" style="margin-bottom:16px"></div><div class="grid" id="shopProducts"></div></section>
 <section id="page-cart" class="hidden"><div class="section-head"><h2>የግዢ ቅርጫት</h2></div><div class="panel" id="cartItems"></div><div class="panel" style="margin-top:16px"><h3>የትዕዛዝ መረጃ</h3><div class="formrow"><input id="buyerName" placeholder="ሙሉ ስም"><input id="buyerPhone" placeholder="ስልክ ቁጥር"></div><p class="muted">ይህ ማሳያ ስሪት ነው፤ ትክክለኛ ክፍያ አልተገናኘም።</p><button class="primary" onclick="placeOrder()">ትዕዛዝ አስገባ</button><span id="orderMessage" class="success"></span></div></section>
