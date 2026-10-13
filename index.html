@@ -14,8 +14,8 @@
 <header><div class="nav"><div class="logo">Unity<span>Profit</span></div><nav id="nav"><button class="active" data-page="home">መነሻ</button><button data-page="shop">ገበያ</button><button data-page="dashboard">የአባል ገጽ</button></nav></div></header>
 <main class="wrap">
 <section id="page-home">
-<div class="hero"><div><div class="eyebrow">ግዢ • ግልጽነት • ዕድገት</div><h1>ከ500 ብር ጀምሮ ድርሻ ይሳተፉ።</h1><p>ትርፍ ከእውነተኛ የቡና እና የሰሊጥ ሽያጭ የተጣራ ትርፍ ብቻ ይከፋፈላል። ትርፉ በሽያጭ ይወሰናል።</p><button class="primary" onclick="showPage('shop')">ምርቶችን ይመልከቱ →</button></div><div class="hero-art">☕ 🌾</div></div>
-<div class="section-head"><h2>ተወዳጅ ምርቶች</h2><button class="secondary" onclick="showPage('shop')">ሁሉንም ይመልከቱ</button></div><div class="grid" id="homeProducts"></div>
+<div class="hero"><div><div class="eyebrow">ግዢ • ግልጽነት • ዕድገት</div><h1>ከ500 ብር ጀምሮ ድርሻ ይሳተፉ።</h1><p>ትርፍ ከእውነተኛ የቡና እና የሰሊጥ ሽያጭ የተጣራ ትርፍ ብቻ ይከፋፈላል። ትርፉ በሽያጭ ይወሰናል።</p><button class="primary" style="display:none" onclick="showPage('shop')">ምርቶችን ይመልከቱ →</button></div><div class="hero-art" style="display:none">☕ 🌾</div></div>
+<div class="section-head" style="display:none"><h2>ተወዳጅ ምርቶች</h2><button class="secondary" onclick="showPage('shop')">ሁሉንም ይመልከቱ</button></div><div class="grid" id="homeProducts"></div>
 <div class="notice" style="margin-top:20px">ማስታወሻ፦ ከ500 ብር ጀምሮ ድርሻ ይሳተፉ። ትርፍ ከእውነተኛ የቡና እና የሰሊጥ ሽያጭ የተጣራ ትርፍ ብቻ ይከፋፈላል። ትርፉ በሽያጭ ይወሰናል።</div>
 </section>
 <section id="page-shop" class="hidden"><div class="section-head"><div><div class="eyebrow">UNITY MARKET</div><h2>ምርቶችን ይግዙ</h2></div><input id="search" placeholder="ምርት ፈልግ..." oninput="renderProducts()" hidden style="display:none;padding:12px;border:1px solid var(--line);border-radius:10px"></div><div class="chips" id="filters" hidden style="display:none;margin-bottom:16px"></div><div class="grid" id="shopProducts" hidden style="display:none"></div><div class="panel" style="margin-top:16px"><h3>የተገዛ ቡና እና ሰሊጥ (እውነተኛ መዝገብ)</h3><div id="buyChart"></div><p style="font-size:13px;opacity:.7">በአስተዳዳሪው የተመዘገበ እውነተኛ ግዢ (ኪሎ) ብቻ ነው የሚታየው።</p></div></section>
