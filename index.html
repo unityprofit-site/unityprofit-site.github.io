@@ -26,15 +26,11 @@
 </main><footer>© 2026 UnityProfit · የማሳያ MVP · ግልጽ ንግድ እና ኃላፊነት ያለው እድገት</footer>
 <script>
 const FALLBACK=[
-{id:1,name:"የኢትዮጵያ ቀይ በርበሬ",cat:"ቅመማ ቅመም",price:280,icon:"🌶️",desc:"በጥንቃቄ የተዘጋጀ 250g"},
-{id:2,name:"የኢትዮጵያ ቡና",cat:"ቡና",price:650,icon:"☕",desc:"የተመረጠ 500g"},
-{id:3,name:"ቀይ ምስር",cat:"እህል",price:190,icon:"🫘",desc:"ጥራት ያለው 1kg"},
-{id:4,name:"ተፈጥሯዊ ማር",cat:"ሌሎች",price:480,icon:"🍯",desc:"የአካባቢ ማር 500g"},
-{id:5,name:"ነጭ ሽንኩርት ዱቄት",cat:"ቅመማ ቅመም",price:160,icon:"🧄",desc:"በንጹህ ሁኔታ የተዘጋጀ"},
-{id:6,name:"ጥቁር ሻይ",cat:"ሌሎች",price:220,icon:"🍵",desc:"የዕለት ተዕለት ሻይ"}
+{id:1,name:"ቡና (ኪሎ)",cat:"ቡና",price:1300,icon:"☕",desc:"ጥራት ያለው 1kg"},
+{id:2,name:"ሰሊጥ ሁመራ (ኪሎ)",cat:"ሰሊጥ",price:500,icon:"🌾",desc:"ጥራት ያለው 1kg"}
 ];
 let products=FALLBACK;
-const META={1:{cat:"ቅመማ ቅመም",icon:"🌶️"},2:{cat:"ቡና",icon:"☕"},3:{cat:"እህል",icon:"🫘"},4:{cat:"ሌሎች",icon:"🍯"},5:{cat:"ቅመማ ቅመም",icon:"🧄"},6:{cat:"ሌሎች",icon:"🍵"}};
+const META={1:{cat:"ቡና",icon:"☕"},2:{cat:"ሰሊጥ",icon:"🌾"}};
 async function loadProducts(){try{const r=await fetch("products.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const list=await r.json();products=list.filter(p=>p.stock>0).map(p=>{const m=META[p.id]||{cat:"ሌሎች",icon:"📦"};return{id:p.id,name:p.name,price:p.price,cat:m.cat,icon:m.icon,desc:"ክምችት: "+p.stock}});renderProducts()}catch(e){}}
 let cart={},orders=[],activeCat="ሁሉም";
 const money=n=>Math.round(n).toLocaleString("en-US")+" ብር";
