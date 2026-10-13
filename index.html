@@ -11,7 +11,7 @@
 </style>
 </head>
 <body>
-<header><div class="nav"><div class="logo">Unity<span>Profit</span></div><nav id="nav"><button class="active" data-page="home">መነሻ</button><button data-page="shop">ገበያ</button><button data-page="dashboard">የአባል ገጽ</button></nav></div></header>
+<header><div class="nav"><div class="logo">Unity<span>Profit</span></div><nav id="nav"><button class="active" data-page="home">መነሻ</button><button data-page="shop">ገበያ</button><button data-page="dashboard">የገዙት ምርት ድርሻ</button></nav></div></header>
 <main class="wrap">
 <section id="page-home">
 <div class="hero"><div><div class="eyebrow">ግዢ • ግልጽነት • ዕድገት</div><h1>ከ500 ብር ጀምሮ ድርሻ ይሳተፉ።</h1><p>ትርፍ ከእውነተኛ የቡና እና የሰሊጥ ሽያጭ የተጣራ ትርፍ ብቻ ይከፋፈላል። ትርፉ በሽያጭ ይወሰናል።</p><button class="primary" style="display:none" onclick="showPage('shop')">ምርቶችን ይመልከቱ →</button></div><div class="hero-art" style="display:none">☕ 🌾</div></div>
@@ -20,7 +20,7 @@
 </section>
 <section id="page-shop" class="hidden"><div class="section-head"><div><div class="eyebrow">UNITY MARKET</div><h2>ምርቶችን ይግዙ</h2></div><input id="search" placeholder="ምርት ፈልግ..." oninput="renderProducts()" hidden style="display:none;padding:12px;border:1px solid var(--line);border-radius:10px"></div><div class="chips" id="filters" hidden style="display:none;margin-bottom:16px"></div><div class="grid" id="shopProducts" hidden style="display:none"></div><div class="panel" style="margin-top:16px"><h3>የተገዛ ቡና እና ሰሊጥ (እውነተኛ መዝገብ)</h3><div id="buyChart"></div><p style="font-size:13px;opacity:.7">በአስተዳዳሪው የተመዘገበ እውነተኛ ግዢ (ኪሎ) ብቻ ነው የሚታየው።</p></div></section>
 <section id="page-cart" class="hidden"><div class="section-head"><h2>የግዢ ቅርጫት</h2></div><div class="panel" id="cartItems"></div><div class="panel" style="margin-top:16px"><h3>የትዕዛዝ መረጃ</h3><div class="formrow"><input id="buyerName" placeholder="ሙሉ ስም"><input id="buyerPhone" placeholder="ስልክ ቁጥር"></div><p class="muted">ይህ ማሳያ ስሪት ነው፤ ትክክለኛ ክፍያ አልተገናኘም።</p><button class="primary" onclick="placeOrder()">ትዕዛዝ አስገባ</button><span id="orderMessage" class="success"></span></div></section>
-<section id="page-dashboard" class="hidden"><div class="eyebrow">MEMBER SPACE</div><h2>የአባል ዳሽቦርድ</h2><div class="stats"><div class="stat"><small>የተጠናቀቁ ትዕዛዞች</small><strong id="dashOrders">0</strong></div><div class="stat"><small>የግዢ ድምር</small><strong id="dashSpend">0 ብር</strong></div><div class="stat"><small>የትርፍ ድርሻ</small><strong>0 ብር</strong></div><div class="stat"><small>የሪፈራል ጉርሻ</small><strong>0 ብር</strong></div></div><div class="panel"><h3>የቅርብ ጊዜ እንቅስቃሴ</h3><div id="activity" class="empty">ገና ምንም ትዕዛዝ የለም።</div></div></section>
+<section id="page-dashboard" class="hidden"><div class="eyebrow">MY SHARES</div><h2>የገዙት ምርት ድርሻ</h2><div class="stats"><div class="stat"><small>የተጠናቀቁ ትዕዛዞች</small><strong id="dashOrders">0</strong></div><div class="stat"><small>የግዢ ድምር</small><strong id="dashSpend">0 ብር</strong></div><div class="stat"><small>የትርፍ ድርሻ</small><strong>0 ብር</strong></div><div class="stat"><small>የሪፈራል ጉርሻ</small><strong>0 ብር</strong></div></div><div class="panel"><h3>የቅርብ ጊዜ እንቅስቃሴ</h3><div id="activity" class="empty">ገና ምንም ትዕዛዝ የለም።</div></div></section>
 
 
 </main><footer>© 2026 UnityProfit · የማሳያ MVP · ግልጽ ንግድ እና ኃላፊነት ያለው እድገት</footer>
