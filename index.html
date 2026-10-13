@@ -26,15 +26,15 @@
 </main><footer>© 2026 UnityProfit · የማሳያ MVP · ግልጽ ንግድ እና ኃላፊነት ያለው እድገት</footer>
 <script>
 const FALLBACK=[
-{id:1,name:"ቡና (ኪሎ)",cat:"ቡና",price:1300,icon:"☕",desc:"በኪሎ፦ ከሀገር ውስጥ ግዢ 1,000 ብር · ወደ ውጭ ሽያጭ 1,300 ብር"},
-{id:2,name:"ሰሊጥ ሁመራ (ኪሎ)",cat:"ሰሊጥ",price:500,icon:"🌾",desc:"በኪሎ፦ ከሀገር ውስጥ ግዢ 380 ብር · ወደ ውጭ ሽያጭ 500 ብር"}
+{id:1,name:"ቡና (ኪሎ)",cat:"ቡና",price:1300,icon:"☕",desc:"ድርሻ ለመግዛት እና ትርፍ ለመካፈል"},
+{id:2,name:"ሰሊጥ ሁመራ (ኪሎ)",cat:"ሰሊጥ",price:500,icon:"🌾",desc:"ድርሻ ለመግዛት እና ትርፍ ለመካፈል"}
 ];
 let products=FALLBACK;
 const META={1:{cat:"ቡና",icon:"☕"},2:{cat:"ሰሊጥ",icon:"🌾"}};
 async function loadProducts(){try{const r=await fetch("products.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const list=await r.json();products=list.filter(p=>p.stock>0).map(p=>{const m=META[p.id]||{cat:"ሌሎች",icon:"📦"};return{id:p.id,name:p.name,price:p.price,cat:m.cat,icon:m.icon,desc:"ክምችት: "+p.stock}});renderProducts()}catch(e){}}
 let cart={},orders=[],activeCat="ሁሉም";
 const money=n=>Math.round(n).toLocaleString("en-US")+" ብር";
-function productCard(p){return `<article class="card product"><div class="product-art">${p.icon}</div><div class="muted">${p.cat}</div><h3>${p.name}</h3><div class="muted">${p.desc}</div><div class="price">${money(p.price)}</div><a class="buy" href="https://t.me/unity_profit_bot?start=buy_${p.id}" target="_blank" rel="noopener">🛒 ግዛ (በTelegram)</a></article>`}
+function productCard(p){return `<article class="card product"><div class="product-art">${p.icon}</div><div class="muted">${p.cat}</div><h3>${p.name}</h3><div class="muted">${p.desc}</div><details class="shares"><summary class="buy">🛒 ድርሻ ይግዙ</summary>${[500,1000,1500,2000,3000,6000].map(a=>`<a class="buy" href="https://t.me/unity_profit_bot?start=buy_${p.id}_${a}" target="_blank" rel="noopener">${money(a)}</a>`).join("")}</details></article>`}
 function renderProducts(){let q=(document.getElementById("search")?.value||"").toLowerCase();let list=products.filter(p=>(activeCat==="ሁሉም"||p.cat===activeCat)&&p.name.toLowerCase().includes(q));(document.getElementById("shopProducts")||{}).innerHTML=list.map(productCard).join("")||'<div class="empty">ምርት አልተገኘም።</div>';document.getElementById("homeProducts").innerHTML=products.slice(0,4).map(productCard).join("");(document.getElementById("filters")||{}).innerHTML=["ሁሉም",...new Set(products.map(p=>p.cat))].map(c=>`<button class="chip ${activeCat===c?'active':''}" onclick="activeCat='${c}';renderProducts()">${c}</button>`).join("")}
 function showPage(page){document.querySelectorAll('main section').forEach(s=>s.classList.add("hidden"));document.getElementById("page-"+page)?.classList.remove("hidden");document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));if(page==="cart")renderCart();if(page==="dashboard")renderDashboard();window.scrollTo({top:0,behavior:"smooth"})}
 document.querySelectorAll("#nav button").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.page)));
