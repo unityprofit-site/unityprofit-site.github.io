@@ -50,36 +50,34 @@ renderProducts();renderCart();calculateProfit();loadProducts();setInterval(loadP
 </script>
 <script>
 (function(){
-const N={"1":"ቡና","2":"ሰሊጥ"},C={"1":"#c68b59","2":"#e5c76b"};
-async function draw(){
 const el=document.getElementById("buyChart");if(!el)return;
-try{
+el.style.cssText="background:#0b0f14;border-radius:12px;padding:10px;color:#cfd6dd";
+const C={1:"#ff9f1c",2:"#2ec27e"},N={1:"ቡና",2:"ሰሊጥ"};
+async function draw(){try{
 const r=await fetch("purchases.json?"+Date.now());const d=await r.json();
-const ids=Object.keys(d);
+const ids=Object.keys(d).filter(i=>d[i].length);
 const days=[...new Set(ids.flatMap(i=>d[i].map(x=>x.day)))].sort();
 if(!days.length){el.innerHTML="<p>እስካሁን የተመዘገበ ግዢ የለም።</p>";return}
-const W=320,H=190,p=34;let max=1;
+const W=340,H=210,p=36;let max=1;
 ids.forEach(i=>d[i].forEach(x=>{max=Math.max(max,x.cum)}));
 const X=k=>days.length==1?W/2:p+(W-2*p)*k/(days.length-1);
 const Y=v=>H-p-(H-2*p)*v/max;
-let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:520px" fill="currentColor">`;
-s+=`<line x1="${p}" y1="${H-p}" x2="${W-p}" y2="${H-p}" stroke="#888"/>`;
-s+=`<text x="2" y="${Y(max)+4}" font-size="10">${max}</text><text x="2" y="${H-p+4}" font-size="10">0</text>`;
-s+=`<text x="${p}" y="${H-8}" font-size="10">${days[0]}</text>`;
-if(days.length>1)s+=`<text x="${W-p}" y="${H-8}" font-size="10" text-anchor="end">${days[days.length-1]}</text>`;
+let s='<svg viewBox="0 0 '+W+' '+H+'" width="100%" style="max-width:520px;background:#0b0f14">';
+for(let g=0;g<=4;g++){const v=max*g/4,y=Y(v);
+s+='<line x1="'+p+'" y1="'+y+'" x2="'+(W-p)+'" y2="'+y+'" stroke="#2a323c" stroke-dasharray="4 4"/>';
+s+='<text x="2" y="'+(y+4)+'" font-size="10" fill="#8b96a3">'+Math.round(v)+'</text>';}
+s+='<text x="'+p+'" y="'+(H-8)+'" font-size="10" fill="#8b96a3">'+days[0]+'</text>';
+if(days.length>1)s+='<text x="'+(W-p)+'" y="'+(H-8)+'" font-size="10" fill="#8b96a3" text-anchor="end">'+days[days.length-1]+'</text>';
 let leg=[];
-ids.forEach(i=>{
-let last=0;
+ids.forEach(i=>{let last=0;
 const pts=days.map((dy,k)=>{const f=d[i].find(x=>x.day==dy);if(f)last=f.cum;return [X(k),Y(last)]});
-const col=C[i]||"#6cf";
-s+=`<polyline fill="none" stroke="${col}" stroke-width="3" points="${pts.map(q=>q.join(",")).join(" ")}"/>`;
-pts.forEach(q=>{s+=`<circle cx="${q[0]}" cy="${q[1]}" r="4" fill="${col}"/>`});
-leg.push(`<span style="color:${col}">● ${N[i]||"ምርት "+i}: ${last} ኪሎ</span>`);
-});
-s+="</svg>";
-el.innerHTML=s+"<p>"+leg.join(" &nbsp; ")+"</p>";
-}catch(e){el.innerHTML="<p>መረጃ ማምጣት አልተቻለም።</p>"}
-}
+const col=C[i]||"#ff5d5d";
+s+='<polyline fill="none" stroke="'+col+'" stroke-width="2.5" stroke-linejoin="round" points="'+pts.map(q=>q.join(",")).join(" ")+'"/>';
+pts.forEach(q=>{s+='<circle cx="'+q[0]+'" cy="'+q[1]+'" r="4" fill="'+col+'"/>'});
+leg.push('<span style="color:'+col+'">● '+(N[i]||("ምርት "+i))+': '+last+' ኪሎ</span>');});
+s+='</svg>';
+el.innerHTML=s+'<p style="font-size:13px">'+leg.join(" &nbsp; ")+'</p>';
+}catch(e){el.innerHTML="<p>መረጃ ማምጣት አልተቻለም።</p>"}}
 draw();setInterval(draw,30000);
 })();
 </script></body>

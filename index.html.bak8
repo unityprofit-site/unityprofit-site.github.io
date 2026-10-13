@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="am">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UnityProfit | የመስመር ላይ ገበያ</title>
+<style>
+:root{--green:#16794b;--dark:#16352a;--mint:#eaf6ef;--ink:#20312a;--muted:#6b7b72;--line:#e2eae5;--white:#fff;--gold:#f3b83f}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,"Noto Sans Ethiopic",sans-serif;background:#f7faf8;color:var(--ink)}button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:11px 15px;font-weight:700}.primary{background:var(--green);color:#fff}.secondary{background:var(--mint);color:var(--green)}header{background:white;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}.nav{max-width:1180px;margin:auto;padding:14px 20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}.logo{font-size:22px;font-weight:900;color:var(--green);margin-right:auto}.logo span{color:var(--dark)}nav{display:flex;gap:6px;flex-wrap:wrap}nav button{background:transparent;color:#52645a}nav button.active,nav button:hover{background:var(--mint);color:var(--green)}.wrap{max-width:1180px;margin:auto;padding:24px 20px}.hero{border-radius:22px;padding:36px;background:linear-gradient(120deg,#e4f5e9,#f6fbf5);display:grid;grid-template-columns:1.5fr 1fr;gap:20px;align-items:center;overflow:hidden}.hero h1{font-size:clamp(28px,4vw,46px);line-height:1.18;margin:10px 0}.hero p{color:var(--muted);line-height:1.7;max-width:600px}.hero-art{font-size:105px;text-align:center;filter:drop-shadow(0 12px 8px #b6d9c0)}.eyebrow{color:var(--green);font-weight:800;letter-spacing:.04em}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:28px 0 16px}.section-head h2{margin:0}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card,.panel,.stat{background:white;border:1px solid var(--line);border-radius:16px;padding:17px}.product-art{height:130px;border-radius:12px;background:var(--mint);display:grid;place-items:center;font-size:62px;margin-bottom:13px}.product h3{margin:6px 0}.muted{color:var(--muted);font-size:14px}.price{font-size:19px;font-weight:900;color:var(--green);margin:10px 0}.product button{width:100%}.buy{display:block;text-align:center;text-decoration:none;background:var(--green);color:#fff;border-radius:10px;padding:11px 15px;font-weight:700}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{padding:8px 12px;border-radius:99px;background:white;border:1px solid var(--line);color:var(--muted)}.chip.active{background:var(--green);color:white}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}.stat small{color:var(--muted)}.stat strong{display:block;font-size:24px;margin-top:10px}.panel h3{margin-top:0}.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.rowline{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.rowline:last-child{border-bottom:0}.formrow{display:flex;gap:8px;flex-wrap:wrap}.formrow input,.panel input,.panel select{padding:11px;border:1px solid var(--line);border-radius:9px;min-width:0}.formrow input{flex:1}.notice{padding:12px;border-radius:10px;background:#fff7e4;color:#72521b;line-height:1.6;font-size:14px}.success{color:var(--green)}.hidden{display:none!important}footer{text-align:center;color:var(--muted);padding:28px;border-top:1px solid var(--line);margin-top:40px}.empty{text-align:center;padding:30px;color:var(--muted)}.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:480px}th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line);font-size:14px}th{color:var(--muted);font-weight:700}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}.hero-art{font-size:75px}.two{grid-template-columns:1fr}.nav{gap:10px}}@media(max-width:480px){.grid{grid-template-columns:1fr 1fr;gap:9px}.card{padding:10px}.product-art{height:90px;font-size:43px}.wrap{padding:17px 12px}.hero{padding:22px}.logo{font-size:19px}nav button{padding:9px;font-size:13px}.stat{padding:12px}.stat strong{font-size:19px}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="logo">Unity<span>Profit</span></div><nav id="nav"><button class="active" data-page="home">መነሻ</button><button data-page="shop">ገበያ</button><button data-page="dashboard">የአባል ገጽ</button></nav></div></header>
+<main class="wrap">
+<section id="page-home">
+<div class="hero"><div><div class="eyebrow">ግዢ • ግልጽነት • ዕድገት</div><h1>ከ500 ብር ጀምሮ ድርሻ ይሳተፉ።</h1><p>ትርፍ ከእውነተኛ የቡና እና የሰሊጥ ሽያጭ የተጣራ ትርፍ ብቻ ይከፋፈላል። ትርፉ በሽያጭ ይወሰናል።</p><button class="primary" onclick="showPage('shop')">ምርቶችን ይመልከቱ →</button></div><div class="hero-art">☕ 🌾</div></div>
+<div class="section-head"><h2>ተወዳጅ ምርቶች</h2><button class="secondary" onclick="showPage('shop')">ሁሉንም ይመልከቱ</button></div><div class="grid" id="homeProducts"></div>
+<div class="notice" style="margin-top:20px">ማስታወሻ፦ ከ500 ብር ጀምሮ ድርሻ ይሳተፉ። ትርፍ ከእውነተኛ የቡና እና የሰሊጥ ሽያጭ የተጣራ ትርፍ ብቻ ይከፋፈላል። ትርፉ በሽያጭ ይወሰናል።</div>
+</section>
+<section id="page-shop" class="hidden"><div class="section-head"><div><div class="eyebrow">UNITY MARKET</div><h2>ምርቶችን ይግዙ</h2></div><input id="search" placeholder="ምርት ፈልግ..." oninput="renderProducts()" style="padding:12px;border:1px solid var(--line);border-radius:10px"></div><div class="chips" id="filters" style="margin-bottom:16px"></div><div class="grid" id="shopProducts"></div><div class="panel" style="margin-top:16px"><h3>የተገዛ ቡና እና ሰሊጥ (እውነተኛ መዝገብ)</h3><div id="buyChart"></div><p style="font-size:13px;opacity:.7">በአስተዳዳሪው የተመዘገበ እውነተኛ ግዢ (ኪሎ) ብቻ ነው የሚታየው።</p></div></section>
+<section id="page-cart" class="hidden"><div class="section-head"><h2>የግዢ ቅርጫት</h2></div><div class="panel" id="cartItems"></div><div class="panel" style="margin-top:16px"><h3>የትዕዛዝ መረጃ</h3><div class="formrow"><input id="buyerName" placeholder="ሙሉ ስም"><input id="buyerPhone" placeholder="ስልክ ቁጥር"></div><p class="muted">ይህ ማሳያ ስሪት ነው፤ ትክክለኛ ክፍያ አልተገናኘም።</p><button class="primary" onclick="placeOrder()">ትዕዛዝ አስገባ</button><span id="orderMessage" class="success"></span></div></section>
+<section id="page-dashboard" class="hidden"><div class="eyebrow">MEMBER SPACE</div><h2>የአባል ዳሽቦርድ</h2><div class="stats"><div class="stat"><small>የተጠናቀቁ ትዕዛዞች</small><strong id="dashOrders">0</strong></div><div class="stat"><small>የግዢ ድምር</small><strong id="dashSpend">0 ብር</strong></div><div class="stat"><small>የትርፍ ድርሻ</small><strong>0 ብር</strong></div><div class="stat"><small>የሪፈራል ጉርሻ</small><strong>0 ብር</strong></div></div><div class="panel"><h3>የቅርብ ጊዜ እንቅስቃሴ</h3><div id="activity" class="empty">ገና ምንም ትዕዛዝ የለም።</div></div></section>
+
+
+</main><footer>© 2026 UnityProfit · የማሳያ MVP · ግልጽ ንግድ እና ኃላፊነት ያለው እድገት</footer>
+<script>
+const FALLBACK=[
+{id:1,name:"ቡና (ኪሎ)",cat:"ቡና",price:1300,icon:"☕",desc:"በኪሎ፦ ከሀገር ውስጥ ግዢ 1,000 ብር · ወደ ውጭ ሽያጭ 1,300 ብር"},
+{id:2,name:"ሰሊጥ ሁመራ (ኪሎ)",cat:"ሰሊጥ",price:500,icon:"🌾",desc:"በኪሎ፦ ከሀገር ውስጥ ግዢ 380 ብር · ወደ ውጭ ሽያጭ 500 ብር"}
+];
+let products=FALLBACK;
+const META={1:{cat:"ቡና",icon:"☕"},2:{cat:"ሰሊጥ",icon:"🌾"}};
+async function loadProducts(){try{const r=await fetch("products.json?t="+Date.now(),{cache:"no-store"});if(!r.ok)return;const list=await r.json();products=list.filter(p=>p.stock>0).map(p=>{const m=META[p.id]||{cat:"ሌሎች",icon:"📦"};return{id:p.id,name:p.name,price:p.price,cat:m.cat,icon:m.icon,desc:"ክምችት: "+p.stock}});renderProducts()}catch(e){}}
+let cart={},orders=[],activeCat="ሁሉም";
+const money=n=>Math.round(n).toLocaleString("en-US")+" ብር";
+function productCard(p){return `<article class="card product"><div class="product-art">${p.icon}</div><div class="muted">${p.cat}</div><h3>${p.name}</h3><div class="muted">${p.desc}</div><div class="price">${money(p.price)}</div><a class="buy" href="https://t.me/unity_profit_bot?start=buy_${p.id}" target="_blank" rel="noopener">🛒 ግዛ (በTelegram)</a></article>`}
+function renderProducts(){let q=(document.getElementById("search")?.value||"").toLowerCase();let list=products.filter(p=>(activeCat==="ሁሉም"||p.cat===activeCat)&&p.name.toLowerCase().includes(q));document.getElementById("shopProducts").innerHTML=list.map(productCard).join("")||'<div class="empty">ምርት አልተገኘም።</div>';document.getElementById("homeProducts").innerHTML=products.slice(0,4).map(productCard).join("");document.getElementById("filters").innerHTML=["ሁሉም",...new Set(products.map(p=>p.cat))].map(c=>`<button class="chip ${activeCat===c?'active':''}" onclick="activeCat='${c}';renderProducts()">${c}</button>`).join("")}
+function showPage(page){document.querySelectorAll('main section').forEach(s=>s.classList.add("hidden"));document.getElementById("page-"+page)?.classList.remove("hidden");document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));if(page==="cart")renderCart();if(page==="dashboard")renderDashboard();window.scrollTo({top:0,behavior:"smooth"})}
+document.querySelectorAll("#nav button").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.page)));
+function addToCart(id){cart[id]=(cart[id]||0)+1;document.getElementById("cartCount").textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
+function renderCart(){let ids=Object.keys(cart);let box=document.getElementById("cartItems");if(!ids.length){box.innerHTML='<div class="empty">ቅርጫትዎ ባዶ ነው። <button class="secondary" onclick="showPage(\'shop\')">ምርት ይምረጡ</button></div>';return}let total=0;box.innerHTML=ids.map(id=>{let p=products.find(x=>x.id==id),sub=p.price*cart[id];total+=sub;return `<div class="rowline"><span>${p.icon} ${p.name} × ${cart[id]}</span><strong>${money(sub)} <button class="chip" onclick="removeItem(${id})">−</button></strong></div>`}).join("")+`<div class="rowline"><strong>ጠቅላላ</strong><strong>${money(total)}</strong></div>`}
+function removeItem(id){if(cart[id]>1)cart[id]--;else delete cart[id];document.getElementById("cartCount").textContent=Object.values(cart).reduce((a,b)=>a+b,0);renderCart()}
+function placeOrder(){if(!Object.keys(cart).length){document.getElementById("orderMessage").textContent="እባክዎ መጀመሪያ ምርት ይምረጡ።";return}let name=document.getElementById("buyerName").value.trim(),phone=document.getElementById("buyerPhone").value.trim();if(!name||!phone){document.getElementById("orderMessage").textContent="ስምና ስልክ ቁጥር ያስፈልጋሉ።";return}let items=Object.entries(cart).map(([id,qty])=>({product:products.find(p=>p.id==id),qty}));let total=items.reduce((s,i)=>s+i.product.price*i.qty,0);orders.push({name,phone,items,total,date:new Date().toLocaleString()});cart={};document.getElementById("cartCount").textContent="0";document.getElementById("orderMessage").textContent="የማሳያ ትዕዛዝ ተመዝግቧል። ክፍያ አልተፈጸመም።";renderCart();renderDashboard()}
+function renderDashboard(){document.getElementById("dashOrders").textContent=orders.length;document.getElementById("dashSpend").textContent=money(orders.reduce((s,o)=>s+o.total,0));document.getElementById("activity").innerHTML=orders.length?orders.slice().reverse().map(o=>`<div class="rowline"><span>ትዕዛዝ · ${o.date}</span><strong>${money(o.total)}</strong></div>`).join(""):'ገና ምንም ትዕዛዝ የለም።'}
+
+function calculateProfit(){let rev=Math.max(0,+document.getElementById("revenue").value||0),cogs=Math.max(0,+document.getElementById("cogs").value||0),del=Math.max(0,+document.getElementById("delivery").value||0),other=Math.max(0,+document.getElementById("otherCosts").value||0),rate=Math.min(100,Math.max(0,+document.getElementById("shareRate").value||0));let net=rev-cogs-del-other,distributable=Math.max(0,net),share=distributable*rate/100;document.getElementById("profitResult").innerHTML=`<span>የተጣራ ትርፍ: <strong>${money(net)}</strong><br><span class="muted">ለአባላት የሚመደብ (${rate}%): ${money(share)} · ድርጅቱ የሚያስቀር: ${money(distributable-share)}</span></span>`}
+function copyReferral(){let input=document.getElementById("refLink");input.select();let msg=document.getElementById("copyMsg");try{document.execCommand("copy");msg.textContent="ሊንኩ ተቀድቷል (የማሳያ ሊንክ ነው)።"}catch(e){msg.textContent="ሊንኩን በእጅ ይቅዱ።"}}
+renderProducts();renderCart();calculateProfit();loadProducts();setInterval(loadProducts,30000);
+</script>
+<script>
+(function(){
+const N={"1":"ቡና","2":"ሰሊጥ"},C={"1":"#c68b59","2":"#e5c76b"};
+async function draw(){
+const el=document.getElementById("buyChart");if(!el)return;
+try{
+const r=await fetch("purchases.json?"+Date.now());const d=await r.json();
+const ids=Object.keys(d);
+const days=[...new Set(ids.flatMap(i=>d[i].map(x=>x.day)))].sort();
+if(!days.length){el.innerHTML="<p>እስካሁን የተመዘገበ ግዢ የለም።</p>";return}
+const W=320,H=190,p=34;let max=1;
+ids.forEach(i=>d[i].forEach(x=>{max=Math.max(max,x.cum)}));
+const X=k=>days.length==1?W/2:p+(W-2*p)*k/(days.length-1);
+const Y=v=>H-p-(H-2*p)*v/max;
+let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:520px" fill="currentColor">`;
+s+=`<line x1="${p}" y1="${H-p}" x2="${W-p}" y2="${H-p}" stroke="#888"/>`;
+s+=`<text x="2" y="${Y(max)+4}" font-size="10">${max}</text><text x="2" y="${H-p+4}" font-size="10">0</text>`;
+s+=`<text x="${p}" y="${H-8}" font-size="10">${days[0]}</text>`;
+if(days.length>1)s+=`<text x="${W-p}" y="${H-8}" font-size="10" text-anchor="end">${days[days.length-1]}</text>`;
+let leg=[];
+ids.forEach(i=>{
+let last=0;
+const pts=days.map((dy,k)=>{const f=d[i].find(x=>x.day==dy);if(f)last=f.cum;return [X(k),Y(last)]});
+const col=C[i]||"#6cf";
+s+=`<polyline fill="none" stroke="${col}" stroke-width="3" points="${pts.map(q=>q.join(",")).join(" ")}"/>`;
+pts.forEach(q=>{s+=`<circle cx="${q[0]}" cy="${q[1]}" r="4" fill="${col}"/>`});
+leg.push(`<span style="color:${col}">● ${N[i]||"ምርት "+i}: ${last} ኪሎ</span>`);
+});
+s+="</svg>";
+el.innerHTML=s+"<p>"+leg.join(" &nbsp; ")+"</p>";
+}catch(e){el.innerHTML="<p>መረጃ ማምጣት አልተቻለም።</p>"}
+}
+draw();setInterval(draw,30000);
+})();
+</script></body>
+</html>
